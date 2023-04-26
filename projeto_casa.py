@@ -9,7 +9,10 @@ from mfrc522 import MFRC522
 #adiciona a funcao "sleep" da biblioteca "time" ao codigo
 import utime
 
+#biblioteca do sensor de temp. umid.
 from dht import DHT11
+
+from machine import UART, PWM
 
 #configura o pino conectado ao LED da placa como uma saida
 led = Pin(14, Pin.OUT)   #Led no pino 14
@@ -20,7 +23,17 @@ botaob = Pin(1, Pin.IN)
 dht11_pin = 2
 dht11_sensor = DHT11(Pin(dht11_pin, Pin.IN))
 
+servo = PWM(Pin(16))
+servo.freq(50)
+
 reader = MFRC522(spi_id=0,sck=6,miso=4,mosi=7,cs=5,rst=22)
+
+sensorAnt = 1
+
+def setServo (position):
+    angulo = int( (position - 0) * (7850 - 1310) )
+    angulo = int( angulo / (180 - 0) + 1310 )
+    servo.duty_u16(angulo)
 
 print("Iniciado!")
 print("")
@@ -29,7 +42,7 @@ while True:
     #alterando os nomes dos codigos para simplificação
     
     valora = botaoa.value()  #storing the value of the push button state in the variable logic_state
-    valorb = botaob.value()
+    valorb = botaob.value() 
     
     reader.init()
     (stat, tag_type) = reader.request(reader.REQIDL) 
@@ -41,7 +54,11 @@ while True:
             if card == 3843062025:
                 #if valora == True:  #se valor do botao
                     try:
-                        print("Bem vindo")
+                        print("")
+                        print("Bem vindo Renan")
+                        #servo em angulo
+                        setServo(90)
+                        #sensor de umid e temp
                         dht11_sensor.measure()
                         dht11_temp = dht11_sensor.temperature()
                         dht11_humid = dht11_sensor.humidity()
@@ -51,16 +68,36 @@ while True:
                         print("Erro ao ler dados do sensor:", e)
                         led.high()
                     utime.sleep(1)
-            elif card != 3843062025:
+            elif card == 2250575594:
+                    try:
+                        print("")
+                        print("Bem vindo Arthur")
+                        #servo em angulo
+                        setServo(80)
+                        #sensor de umid e temp
+                        dht11_sensor.measure()
+                        dht11_temp = dht11_sensor.temperature()
+                        dht11_humid = dht11_sensor.humidity()
+                        print("Humidity: {:.1f}°C   Temperature: {:.1f}% ".format(dht11_humid, dht11_temp))
+                        led.high() #acende o LED
+                    except OSError as e:
+                        print("Erro ao ler dados do sensor:", e)
+                        led.high()
+                    utime.sleep(1)
+            elif card != 3843062025 and card != 2250575594:
                 led.low()
+                setServo(0)
                 utime.sleep(1)
-        #if valorb == True:
-            #led.low()
-            #print("Ate logo")
-            #utime.sleep(1)
+                
+    elif valorb == True:
+        led.low()
+        print("Ate logo")
+        setServo(0)
+        utime.sleep(1)
                 
                 
 #Comentarios
 #Codigo do cartao:3843062025
 #Codigo do chaverinho:2250575594
     
+
