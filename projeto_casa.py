@@ -1,5 +1,5 @@
 #====================================(imports iniciais)====================================================================
-#adiciona a instancia "Pin", "PWM", "UART" e "SPI" da biblioteca "machine" ao codigo
+#adiciona a instancia "Pin", "PWM", "UART" e "I2C" da biblioteca "machine" ao codigo
 from machine import Pin, UART, PWM, I2C
 
 #adicionar a biblioteca do RFID
@@ -58,7 +58,8 @@ display = SSD1306_I2C(128, 64, i2c0)
 display.fill(0)
 display.show()
 
-display.fill(0)                        # preenche toda a tela com cor = 0
+# preenche toda a tela com cor = 0
+display.fill(0)
 
 #========================================(Programa principal)==============================================================
 while True:
@@ -68,7 +69,7 @@ while True:
     reader.init() #iniciar o RFID
     (stat, tag_type) = reader.request(reader.REQIDL)
     
-    display.fill(0)                        # preenche toda a tela com cor = 0
+    display.fill(0)
     
     if stat == reader.OK:
         (stat, uid) = reader.SelectTagSN()
@@ -139,6 +140,13 @@ while True:
 #Codigo do chaverinho:2250575594
 
 #===========================================(Pinagens)=====================================================================
-#Led     
-#Motor
-#Botao
+#Led         GP14
+#Motor       GP16
+#Botao       GP1
+#DHT11       GP2
+#DisplaySCL  GP9
+#DisplaySDA  GP8
+#RFID(MISO)  GP4
+#RFID(MOSI)  GP7
+#RFID(SCK)   GP6
+#RFID(SDA)   GP5
