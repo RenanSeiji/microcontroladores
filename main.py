@@ -22,7 +22,7 @@ from servo.servo import Servo
 #conectado ao LED da placa como uma saida
 led = Pin(14, Pin.OUT)   #Led no pino 14
 
-#Botao
+#Definir pino para o Botao
 botaob = Pin(1, Pin.IN)
 
 #Sensor DHT
@@ -39,11 +39,8 @@ reader = MFRC522(spi_id=0,sck=6,miso=4,mosi=7,cs=5,rst=22)
 i2c0_slc_pin = 9
 i2c0_sda_pin = 8
 
+# Cria o objeto buzzer
 buzzer = Buzzer(15)
-
-#=======================================(configurações)====================================================================
-
-#Mapeando o servo motor para posicionar os valores em angulo
 
 #Print para a inicialização do projeto e saber que nao deu nenhum erro
 print("Iniciado!")
@@ -72,9 +69,11 @@ while True:
                     try:
                         print("")
                         print("Bem vindo Renan")
+
                         display.show_text('Bem vindo Renan', 0, 0, 1)  # desenha algum texto em x = 40, y = 0 , cor = 1
                         #servo em angulo
                         servo.set_servo(90)
+
                         #sensor de umid e temp
                         dht11_sensor.measure()
                         dht11_temp = dht11_sensor.temperature()
