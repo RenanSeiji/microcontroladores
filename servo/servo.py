@@ -1,4 +1,4 @@
-from machine import PIN,PWM
+from machine import Pin,PWM
 
 class Servo:
     def __init__ (self, pin, freq):

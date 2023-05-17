@@ -11,7 +11,11 @@ class Display:
         self._display.show()
     
     def show_text(self, text, x, y, color):
-        self._display.fill(0)
+        # self._display.fill(0)
         self._display.text(text, x, y, color)
         self._display.show()
         utime.sleep_ms(50)
+    
+    def erase(self):
+        self._display.fill(0)
+        

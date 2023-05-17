@@ -69,11 +69,10 @@ while True:
                     try:
                         print("")
                         print("Bem vindo Renan")
-
+                        display.erase()
                         display.show_text('Bem vindo Renan', 0, 0, 1)  # desenha algum texto em x = 40, y = 0 , cor = 1
                         #servo em angulo
                         servo.set_servo(90)
-
                         #sensor de umid e temp
                         dht11_sensor.measure()
                         dht11_temp = dht11_sensor.temperature()
@@ -92,6 +91,7 @@ while True:
                     try:
                         print("")
                         print("Bem vindo Arthur")
+                        display.erase()
                         display.show_text('Bem vindo Arthur', 0, 0, 1)  # desenha algum texto em x = 40, y = 0 , cor = 1
                         #servo em angulo
                         servo.set_servo(80)
@@ -102,7 +102,7 @@ while True:
                         print("Humidity: {:.1f}°C   Temperature: {:.1f}% ".format(dht11_humid, dht11_temp))
                         display.show_text("Temp: {:.1f}C ".format(dht11_temp), 0, 12, 1)  # desenha algum texto em x = 40, y = 0 , cor = 1
                         display.show_text("Humid: {:.1f}% ".format(dht11_humid), 0, 24, 1)
-                        buzzer.song1()
+                        buzzer.song2()
                         led.high() #acende o LED
                     except OSError as e: #caso der erro na leitura do sensor
                         print("Erro ao ler dados do sensor:", e)
@@ -111,6 +111,7 @@ while True:
 #==============================================(If nao for nenhum dos dois)=================================================
             elif card != 3843062025 and card != 2250575594:
                 print("ID nao identificado")
+                display.erase()
                 display.show_text('ID nao identificado', 0, 0, 1)  # desenha algum texto em x = 40, y = 0 , cor = 1
                 led.low()
                 servo.set_servo(0)
