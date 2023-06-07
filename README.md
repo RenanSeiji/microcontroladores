@@ -1,6 +1,6 @@
 # EEN - 251 projeto de microcontroladores
 ## Integrantes
-Nome: Renan Seiji Ikeda           RA: 19.00529-6
+Nome: Renan Seiji Ikeda            RA: 19.00529-6
 
 Nome: Arthur Wypych de Almeida     RA: 19.00565-2
 
@@ -66,6 +66,25 @@ A foto acima mostra como a casa ficou no final
 ## Análize econômica
 ### Preço total dos componentes do projeto
 
+- Raspberry pi pico - 49,90
+- Módulo RFID - 15,70
+- Placa ilhada - 5,31
+- DHT 11 - 16,00
+- LED - 0,80
+- Buzzer - 2,99
+- Servo motor - 28,99
+- Display oled - 49,34
+- Botão - 0,30
+- Fio - 15,00
+- Soquetes - 1,00
+Preço total = 185,33
+
 ### Por quanto venderiamos o produto?
 
+Considerando mão de obra, seriam uns 250R$
+
 ## Resultado final do projeto
+
+https://github.com/RenanSeiji/microcontroladores/assets/108562417/699c5d5f-6e65-4e02-91ed-4d69d0d8851d
+
+Tá uma merda
