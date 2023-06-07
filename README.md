@@ -27,6 +27,7 @@ Para a elaboração da atividade foram feitos diversos diagramas e esquemáticas
 - Botão
 - Fio??
 - Soquetes
+- Papel paraná
 
 ### Diagrama dos pinos
 ![Microcontroladores-06](https://github.com/RenanSeiji/microcontroladores/assets/108562417/5e040cd2-24bb-44e1-b70e-c7af58b0fc33)
@@ -77,7 +78,8 @@ A foto acima mostra como a casa ficou no final
 - Botão - 0,30
 - Fio - 15,00
 - Soquetes - 1,00
-Preço total = 185,33
+- Papel paraná - 25,00
+Preço total = 215,33
 
 ### Por quanto venderiamos o produto?
 
